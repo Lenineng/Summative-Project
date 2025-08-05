@@ -4,14 +4,13 @@ A full-stack platform designed to manage course offerings and track facilitator 
 Includes Redis-backed notifications, RESTful APIs, authentication with role-based access, and background workers for alerting.
 
 ## Demo Video
-
+🔗
 ## Swagger Documentation
 🔗
-http://localhost:5000/api-docs/
-🔗 Reflection Live Demo
+## Module 3 Student Reflection Page 
+🔗 
 
-https://reflectionsimeon.netlify.app/
-📌 Table of Contents
+ Table of Contents
 
     Features
 

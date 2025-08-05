@@ -2,86 +2,89 @@
 
 A full-stack platform designed to manage course offerings and track facilitator activity logs.
 Includes Redis-backed notifications, RESTful APIs, authentication with role-based access, and background workers for alerting.
-
+## NOTE: MODULE 1&2 ARE IN SAME FOLDER "Module 1  Course Allocation System" 
 ## Demo Video
 🔗
 ## Swagger Documentation
-🔗
+🔗  http://localhost:3000/api-docs/
+
 ## Module 3 Student Reflection Page 
-🔗 
+🔗 http://127.0.0.1:5500/Module%203%20Student%20Reflection/index.html
 
- Table of Contents
+###Table of Contents
 
-    Features
+  -Features
 
-    Prerequisites
+  - Prerequisites
 
-    Installation
+  -  Installation
 
-    Environment Setup
+  -   Environment Setup
 
-    Database Schema
+  -  Database Schema
 
-    Authentication
+  -   Authentication
 
-    Running the App
+  -  Running the App
 
-    Redis & Worker Setup
+  -  Redis & Worker Setup
 
-    API Testing
+  -  API Testing
 
-    Project Structure
+  -  Project Structure
 
-    Use Cases
+  -  Use Cases
 
-    Troubleshooting
+  -  Troubleshooting
 
-    Limitations
+  -  Limitations
 
-    License
+  -  License
 
-    Author
+  -   Author
 
-✅ Features
+### Features
 
-    Facilitator activity tracking (attendance, grading, moderation, etc.)
+   -Facilitator activity tracking (attendance, grading, moderation, etc.)
 
-    Course offering management
+   -Course offering management
 
-    JWT-based authentication and role authorization
+   -JWT-based authentication and role authorization
 
-    Redis-backed notification queue (reminders and alerts)
+   -Redis-backed notification queue (reminders and alerts)
 
-    Background worker system
+   -Background worker system
 
-    RESTful API with Swagger documentation
+   -RESTful API with Swagger documentation
 
-    Sequelize ORM for MySQL database
+   -Sequelize ORM for MySQL database
 
-    Email simulation for notification delivery
+   -Email simulation for notification delivery
 
-🧰 Prerequisites
+#### Prerequisites
 
-    Node.js (v18+)
+   -Node.js 
 
-    MySQL
+   -MySQL
 
-    Redis
+   -Redis
 
-    npm
+   -npm
 
-    Git (optional)
+   -Git (optional)
 
-📦 Installation
-
+#### Installation
+```bash
 git clone https://github.com/your-username/your-repo.git
 cd your-repo
 npm install
+```
 
-⚙️ Environment Setup
+#### Environment Setup
 
 Create a .env file and configure your environment:
 
+```bash
 PORT=5000
 DB_HOST=localhost
 DB_USER=root
@@ -90,70 +93,63 @@ DB_NAME=activitylogs
 REDIS_HOST=127.0.0.1
 REDIS_PORT=6379
 JWT_SECRET=your_jwt_secret
-
-🗃️ Database Schema
+```
+#### Database Schema
 
 Key tables:
 
-    Users: Facilitators and managers
+   -Users: Facilitators and managers
 
-    Roles: User roles
+   -Roles: User roles
 
-    CourseOfferings: Course instances
+   -CourseOfferings: Course instances
 
-    ActivityLogs: Weekly submissions
+   -ActivityLogs: Weekly submissions
 
-    Notifications: Sent messages
+   -Notifications: Sent messages
 
-    SequelizeMeta: Migration tracking
+   -SequelizeMeta: Migration tracking
 
-    Use Sequelize migrations to create tables:
+   -Use Sequelize migrations to create tables:
 
-npx sequelize-cli db:migrate
+   -npx sequelize-cli db:migrate
 
-🔐 Authentication
+#### Authentication
 
-    JWT tokens used to protect routes
+   -JWT tokens used to protect routes
 
-    Roles checked with middleware (authorizeRole)
+   -Roles checked with middleware (authorizeRole)
 
-    Login returns a JWT to be used in headers
+   -Login returns a JWT to be used in headers
 
 Login Sample:
-
+```bash
 POST /auth/login
 {
   "email": "manager@example.com",
   "password": "password"
 }
-
-🚀 Running the App
+```
+#### Running the App
 Start the API server
-
+```bash
 npm start
+```
 # or
+```bash
 node server.js
-
+```
 Start the notification worker
-
+```bash
 node workers/notificationWorker.js
+```
 
-💡 Redis & Worker Setup
-Start Redis
 
-Option 1: Local (Mac/Linux)
-
-redis-server
-
-Option 2: Docker
-
-docker run -p 6379:6379 redis
-
-🧪 API Testing
+### API Testing
 
 Use Postman or Swagger UI to test endpoints.
 Example: Create Activity Log
-
+```bash
 POST /api/activitytracker
 Authorization: Bearer <token>
 
@@ -164,64 +160,69 @@ Authorization: Bearer <token>
   "formativeOneGrading": "Pending",
   "courseModeration": "Done"
 }
-
-    Full list of endpoints at:
+```
+   ## Full list of endpoints at:
+   ```bash
     http://localhost:5000/api-docs
-
-📂 Project Structure
-
-project-root/
-├── controllers/
-├── models/
-├── routes/
-├── services/
-│   ├── notificationService.js
-│   └── emailService.js
-├── workers/
-│   └── notificationWorker.js
-├── middleware/
-│   └── auth.js
-├── migrations/
-├── config/
-├── .env
-├── server.js
+```
+#### Project Structure
+ ```bash
+Summative-Project/
+│
+├── Module 1  Course Allocation System/
+│   ├── app.js
+│   ├── server.js
+│   ├── package.json
+│   ├── .env
+│   ├── swagger.js
+│   ├── seed.js
+│   ├── models/
+│   │   ├── index.js
+│   │   ├── manager.js
+│   │   ├── facilitator.js
+│   │   ├── student.js
+│   │   ├── class.js
+│   │   ├── cohort.js
+│   │   ├── module.js
+│   │   ├── mode.js
+│   │   ├── allocation.js
+│   │   └── activityLog.js
+│   ├── controllers/
+│   │   ├── managerController.js
+│   │   ├── facilitatorController.js
+│   │   ├── studentController.js
+│   │   ├── classController.js
+│   │   ├── cohortController.js
+│   │   ├── moduleController.js
+│   │   ├── modeController.js
+│   │   ├── allocationController.js
+│   │   └── activityLogController.js
+│   ├── routes/
+│   │   ├── manager.js
+│   │   ├── facilitator.js
+│   │   ├── student.js
+│   │   ├── class.js
+│   │   ├── cohort.js
+│   │   ├── module.js
+│   │   ├── mode.js
+│   │   ├── allocation.js
+│   │   └── activityLog.js
+│   ├── middleware/
+│   │   └── auth.js
+│   ├── config/
+│   │   └── config.js
+│   └── README.md
+│
+├── Module 3 Student Reflection/
+│   ├── index.html
+│   ├── style.css
+│   ├── app.js
+│   ├── translations.js
+│   └── README.md
 └── README.md
+ ```
 
-📌 Use Cases
-1. Facilitator submits weekly logs
-
-    Submits attendance, grading status, and moderation status
-
-2. Deadline reminder
-
-    Redis queues a reminder for missing logs
-
-    Background worker processes and sends notification
-
-3. Manager receives alerts
-
-    If facilitator fails to submit on time, a notification is triggered to manager
-
-🛠️ Troubleshooting
-Issue	Fix
-Redis not connecting	Ensure Redis is running on 127.0.0.1:6379
-Migrations fail	Check for syntax errors in model or migration files
-Emails not sending	Check your emailService.js configuration
-Auth errors	Ensure token is sent in Authorization header
-⚠️ Limitations
-
-    No frontend UI included in this repo
-
-    Emails are simulated via console (not actual SMTP)
-
-    Only manager and facilitator roles implemented
-
-    No student-facing or file-upload functionality
-
-📄 License
+### License
 
 MIT License
-👤 Author
 
-Lenine
-GitHub

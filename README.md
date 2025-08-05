@@ -2,7 +2,9 @@
 
 A full-stack platform designed to manage course offerings and track facilitator activity logs.
 Includes Redis-backed notifications, RESTful APIs, authentication with role-based access, and background workers for alerting.
-## NOTE: MODULE 1&2 ARE IN SAME FOLDER "Module 1  Course Allocation System" 
+
+### NOTE: 
+MODULE 1&2 ARE IN SAME FOLDER "Module 1  Course Allocation System" 
 ## Demo Video
 🔗
 ## Swagger Documentation

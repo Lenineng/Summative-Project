@@ -1,13 +1,12 @@
 # Course-Management-Platform
-📚 Course Activity Logging System
 
 A full-stack platform designed to manage course offerings and track facilitator activity logs.
 Includes Redis-backed notifications, RESTful APIs, authentication with role-based access, and background workers for alerting.
-🎥 Demo Video
 
-Watch Walkthrough
-📘 Swagger Documentation
+## Demo Video
 
+## Swagger Documentation
+🔗
 http://localhost:5000/api-docs/
 🔗 Reflection Live Demo
 
